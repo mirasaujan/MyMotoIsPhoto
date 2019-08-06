@@ -42,11 +42,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="JxD-E7-EpA"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Anj-l2-MaR">
+                                <rect key="frame" x="154" y="762" width="106" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IJU-fX-Jyh"/>
+                                </constraints>
+                                <state key="normal" title="Add new image"/>
+                                <connections>
+                                    <action selector="didPressAddNewImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h7r-S1-6p1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="40S-HN-C9z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7g7-Fn-BhD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Anj-l2-MaR" secondAttribute="bottom" constant="50" id="AqC-LH-J4W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="40S-HN-C9z" secondAttribute="bottom" id="R8g-jh-PG0"/>
+                            <constraint firstItem="Anj-l2-MaR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="phV-oA-YX4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="40S-HN-C9z" secondAttribute="trailing" id="uLd-HC-iVV"/>
                             <constraint firstItem="40S-HN-C9z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="w5t-2E-Bh7"/>
                         </constraints>

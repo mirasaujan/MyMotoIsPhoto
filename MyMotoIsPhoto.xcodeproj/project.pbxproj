@@ -15,6 +15,7 @@
 		1EDCD03E22F6D23C00D2DFA1 /* MyMotoIsPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCD03D22F6D23C00D2DFA1 /* MyMotoIsPhotoTests.swift */; };
 		1EDCD04922F6D23C00D2DFA1 /* MyMotoIsPhotoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCD04822F6D23C00D2DFA1 /* MyMotoIsPhotoUITests.swift */; };
 		1EDCD05722F6DE6500D2DFA1 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCD05622F6DE6500D2DFA1 /* GalleryCell.swift */; };
+		1EDCD05B22F920CD00D2DFA1 /* UIColor+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCD05A22F920CD00D2DFA1 /* UIColor+UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1EDCD04822F6D23C00D2DFA1 /* MyMotoIsPhotoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMotoIsPhotoUITests.swift; sourceTree = "<group>"; };
 		1EDCD04A22F6D23C00D2DFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EDCD05622F6DE6500D2DFA1 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		1EDCD05A22F920CD00D2DFA1 /* UIColor+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				1EDCD02822F6D23B00D2DFA1 /* AppDelegate.swift */,
 				1EDCD02A22F6D23B00D2DFA1 /* ViewController.swift */,
 				1EDCD05622F6DE6500D2DFA1 /* GalleryCell.swift */,
+				1EDCD05A22F920CD00D2DFA1 /* UIColor+UIImage.swift */,
 				1EDCD02C22F6D23B00D2DFA1 /* Main.storyboard */,
 				1EDCD02F22F6D23C00D2DFA1 /* Assets.xcassets */,
 				1EDCD03122F6D23C00D2DFA1 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EDCD05B22F920CD00D2DFA1 /* UIColor+UIImage.swift in Sources */,
 				1EDCD05722F6DE6500D2DFA1 /* GalleryCell.swift in Sources */,
 				1EDCD02B22F6D23B00D2DFA1 /* ViewController.swift in Sources */,
 				1EDCD02922F6D23B00D2DFA1 /* AppDelegate.swift in Sources */,

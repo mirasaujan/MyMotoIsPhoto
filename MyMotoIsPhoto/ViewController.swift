@@ -19,9 +19,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 1
+        PHPhotoLibrary.shared().register(self)
         setupCollectionView()
         fetchAssets()
         requestAuthorization()
+    }
+    
+    deinit {
+        // 2
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
     private func setupCollectionView() {
@@ -39,6 +46,10 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.fetchAssets()
                     self.galleryCollectionView.reloadData()
+                    // 1
+                    self.galleryCollectionView.scrollToItem(at: IndexPath(item: self.fetchResult.count-1, section: 0),
+                                                            at: .bottom,
+                                                            animated: false)
                 }
             case .notDetermined:
                 PHPhotoLibrary.requestAuthorization() { status in
@@ -53,6 +64,12 @@ class ViewController: UIViewController {
                 break
             }
         }
+    }
+    @IBAction func didPressAddNewImage(_ sender: UIButton) {
+        PHPhotoLibrary.shared().performChanges({
+            let image = UIColor.red.image()
+            PHAssetChangeRequest.creationRequestForAsset(from: image)
+        })
     }
 }
 
@@ -73,6 +90,44 @@ extension ViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension ViewController: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        // 1
+        guard let changes = changeInstance.changeDetails(for: fetchResult)
+            else { return }
+        
+        // 2
+        self.fetchResult = changes.fetchResultAfterChanges
+        
+        // 3
+        DispatchQueue.main.async {
+            if changes.hasIncrementalChanges {
+                self.galleryCollectionView?.performBatchUpdates({
+                    if let removed = changes.removedIndexes, !removed.isEmpty {
+                        self.galleryCollectionView?.deleteItems(at: removed.map({ IndexPath(item: $0, section: 0) }))
+                    }
+                    
+                    if let inserted = changes.insertedIndexes, !inserted.isEmpty {
+                        self.galleryCollectionView?.insertItems(at: inserted.map({ IndexPath(item: $0, section: 0) }))
+                    }
+                    
+                    changes.enumerateMoves { fromIndex, toIndex in
+                        self.galleryCollectionView?.moveItem(at: IndexPath(item: fromIndex, section: 0),
+                                                             to: IndexPath(item: toIndex, section: 0))
+                    }
+                })
+                
+                if let changed = changes.changedIndexes, !changed.isEmpty {
+                    self.galleryCollectionView?.reloadItems(at: changed.map({ IndexPath(item: $0, section: 0) }))
+                }
+                
+            } else {
+                self.galleryCollectionView?.reloadData()
+            }
+        }
     }
 }
 
